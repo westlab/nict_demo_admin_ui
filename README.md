@@ -1,4 +1,7 @@
-# nictpj
+# nict_demo_admin_ui
+
+Admin UI for smart community OS.
+
 
 ## Project setup
 ```
@@ -14,11 +17,3 @@ npm run serve
 ```
 npm run build
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
