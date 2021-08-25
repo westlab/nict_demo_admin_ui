@@ -43,6 +43,6 @@ export default {
 }
 
 .height-fixed {
-  height: 500px;
+  max-height: 600px;
 }
 </style>
