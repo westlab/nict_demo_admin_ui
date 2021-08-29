@@ -1,29 +1,46 @@
+import axios from "axios";
+
+const state = function() {
+    return { 
+        fiwareToken: null,
+        isError: false,
+    }
+}
+
+const mutations = {
+    updateAccessToken(state, fiwareToken) {
+      state.fiwareToken = fiwareToken;
+    },
+    accessTokenReceiveError(state, isError) {
+      state.isError = isError;
+    }
+}
+
+const actions = {
+    getAccessToken({ commit }, data) {
+        axios.post("http://localhost/v1/auth/tokens", data,
+        { headers: { "Content-Type": "application/json",
+                    'Access-Control-Allow-Origin': '*'
+        }
+      })
+        .then((res) => {
+          let token = res.headers['X-Subject-Token'];
+          sessionStorage.setItem("fiwareToken", token);
+          commit("updateAccessToken", token);
+        })
+        .catch((err) => {
+          console.log(err);
+          commit("accessTokenReceiveError", true);
+        });
+    },
+    fetchAccessToken({ commit }) {
+      commit("updateAccessToken", sessionStorage.getItem("fiwareToken"));
+    }
+    
+}
+
 export default {
-  state: {
-    accessToken: null,
-  },
-  mutations: {
-    create(state, data) {
-      state.accessToken = data.accessToken;
-    },
-    destroy(state) {
-      state.accessToken = null;
-    },
-  },
-  actions: {
-    create({ commit, dispatch }, data) {
-      dispatch(
-        "http/post",
-        { url: "/api/v1", data, error: "message.unauthorized" },
-        { root: true }
-      )
-        .then((res) => commit("create", res.data))
-        .catch((err) => err);
-    },
-    destroy({ commit, dispatch }, data) {
-      dispatch("http/delete", { url: "atodekimeru", data }, { root: true })
-        .then((res) => commit("create", res.data))
-        .catch((err) => err);
-    },
-  },
+    state,
+    mutations,
+    actions,
 };

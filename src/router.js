@@ -29,7 +29,7 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   // Token 有無を確認する処理
   if (to.matched.some((page) => page.meta.isTokenNeeded)) {
-    if (!Store.state.fiwareToken.accessToken) {
+    if (!Store.fiwareAuth) {
       next({
         path: "/reload",
         query: {

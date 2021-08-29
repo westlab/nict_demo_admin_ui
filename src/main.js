@@ -12,6 +12,7 @@ import VModal from "vue-js-modal";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faAngleDoubleRight,
+  faExclamationCircle,
   faUsersCog,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -20,11 +21,14 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 Vue.use(BootstrapVue);
 Vue.config.productionTip = false;
 
+
 // Font awesome
 library.add(faUsersCog);
 library.add(faAngleDoubleRight);
+library.add(faExclamationCircle);
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 
+// VModal
 Vue.use(VModal);
 
 new Vue({
