@@ -1,6 +1,6 @@
 import Vue from "vue";
-import Vuex from "vuex";
 
+import Vuex from "vuex";
 import createPersistedState from "vuex-persistedstate";
 
 import fiwareToken from "@/store/modules/fiwareToken";

@@ -15,13 +15,11 @@ export default {
     Header,
   },
   methods: {
-    ...mapActions([
-      "fetchAccessToken",
-    ]),
+    ...mapActions(["fetchAccessToken"]),
   },
-  //created() {
-  //  this.fetchAccessToken();
-  //}
+  created() {
+    this.fetchAccessToken();
+  },
 };
 </script>
 
