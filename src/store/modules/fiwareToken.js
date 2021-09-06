@@ -21,6 +21,7 @@ const actions = {
     await axios
       // TODO: デモの時用に変える必要あり
       .post("http://10.24.129.208/v1/auth/tokens", data, {
+        timeout: 5000,
         headers: { "Content-Type": "application/json" },
       })
       .then(async (res) => {

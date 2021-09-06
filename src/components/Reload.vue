@@ -17,7 +17,7 @@
             required
           />
         </div>
-        <div class="field pb-3">
+        <div class="field py-3">
           <label>Password</label>
           <br />
           <input
@@ -30,6 +30,10 @@
         </div>
         <button class="btn btn-primary" type="submit">Submit</button>
       </form>
+      <div v-if="isLoading" class="text-center pt-4">
+        Loading...
+        <div class="spinner-border" role="status" aria-hidden="true"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -41,10 +45,12 @@ export default {
       email: "",
       password: "",
       errorMessage: "warota",
+      isLoading: false,
     };
   },
   methods: {
     async userInfoSubmit() {
+      this.isLoading = true;
       await this.$store
         .dispatch("getAccessToken", {
           name: this.email,
