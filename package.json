@@ -13,10 +13,18 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/vue-fontawesome": "^2.0.2",
+    "animate.css": "^4.1.1",
+    "axios": "^0.21.1",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.6.5",
+    "v-animate-css": "0.0.3",
+    "vee-validate": "^3.4.11",
     "vue": "^2.6.11",
-    "vue-js-modal": "^2.0.1"
+    "vue-animate-css": "^1.0.0",
+    "vue-js-modal": "^2.0.1",
+    "vue-validate": "^1.0.1",
+    "vuex": "^3.6.2",
+    "vuex-persistedstate": "^4.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

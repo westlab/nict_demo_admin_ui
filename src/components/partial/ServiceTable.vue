@@ -6,11 +6,7 @@
         <AnonymizationAfterTable />
       </div>
       <template v-if="isShow">
-        <div
-          style="font-size: 60px"
-          class="col-md-2 text-danger"
-          :class="{ anonymized: true }"
-        >
+        <div class="col-md-2 text-danger fa-5x" :class="{ anonymized: true }">
           <font-awesome-icon icon="angle-double-right" />
         </div>
         <div class="col-md-5" :class="{ anonymized: true }">
@@ -21,7 +17,7 @@
         <button
           class="btn btn-warning mt-5"
           type="button"
-          v-on:click="showTableHandler()"
+          @click="showTableHandler()"
         >
           Click to Show <br />
           Raw Data
@@ -62,7 +58,7 @@ export default {
 .anonymized {
   opacity: 0;
   animation-name: fadein;
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-fill-mode: forwards;
 }
 

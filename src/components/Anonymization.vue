@@ -1,11 +1,11 @@
 <template>
-  <div class="container">
+  <div id="anonymization" class="container animate__animated animate__fadeIn">
     <div class="pt-4">
       <div class="d-flex flex-row pb-3">
         <h2 class="text-left">Anonymization</h2>
         <button class="btn btn-primary btn-sm ml-auto">Update Info</button>
       </div>
-      <div class="pt-3 scroll height-fixed">
+      <div class="pt-3 height-fixed">
         <!-- TODO: 匿名化サービスから受け取るjsonデータによりループ化 -->
         <ServiceTable :serviceName="'HEMS Service A'" />
         <ServiceTable :serviceName="'Health Service B'" />
@@ -43,6 +43,6 @@ export default {
 }
 
 .height-fixed {
-  height: 500px;
+  max-height: 80%;
 }
 </style>

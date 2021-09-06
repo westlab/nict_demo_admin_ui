@@ -4,7 +4,8 @@
       <h4>{{ graphName }}</h4>
     </div>
     <div class="card-body m-2">
-      <img v-on:click="show" src="@/assets/mininet_sample.jpeg" />
+      <!-- TODO: グラフ差し替え -->
+      <img @click="show" src="@/assets/mininet_sample.jpeg" />
     </div>
     <modal id="overlay" name="trafficGraph" :width="800" :height="450">
       <div aria-expanded="true">
@@ -13,6 +14,7 @@
           <button class="btn btn-secondary" v-on:click="hide">close</button>
         </div>
         <div class="modal-body">
+          <!-- TODO: グラフ差し替え -->
           <img style="width: 600px" src="@/assets/mininet_sample.jpeg" />
         </div>
       </div>
@@ -54,5 +56,3 @@ export default {
   },
 };
 </script>
-
-<style></style>
