@@ -8,7 +8,7 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   modules: {
     fiwareToken,
-  }
+  },
 });
 
 export default store;

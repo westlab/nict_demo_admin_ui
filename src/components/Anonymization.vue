@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div id="anonymization" class="container animate__animated animate__fadeIn">
     <div class="pt-4">
       <div class="d-flex flex-row pb-3">
         <h2 class="text-left">Anonymization</h2>

@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="animate__animated animate__fadeIn">
     <Header />
     <router-view />
   </div>
@@ -26,21 +26,7 @@ export default {
 <style>
 #app {
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  opacity: 0;
-  animation-name: fadein;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes fadein {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div id="network" class="container animate__animated animate__fadeIn">
     <div class="pt-4">
       <div class="d-flex flex-row">
         <h2 class="text-left">Network Info</h2>
@@ -8,7 +8,7 @@
       <div class="row pt-4">
         <div class="col-md-7 border-right">
           <h5 class="text-left">Entries of each Switches</h5>
-          <!-- TODO: mininetから受け取るjsonデータによりループ化 -->
+          <!-- TODO: mininetのredisから受け取るjsonデータによりループ化 -->
           <div class="scroll height-fixed pt-2">
             <NetworkTable :tableName="'Switch A'" />
             <NetworkTable :tableName="'Switch B'" />
@@ -47,6 +47,6 @@ export default {
 }
 
 .height-fixed {
-  height: 500px;
+  height: 70%;
 }
 </style>

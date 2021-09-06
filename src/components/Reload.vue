@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <h3 class="pt-4">Retrieve your Access Token!</h3>
+  <div id="reload">
+    <h3 class="pt-4 animate__animated animate__fadeInUp">
+      Retrieve your Access Token!
+    </h3>
     <div class="container w-25">
-      <span v-if="$store.isError" class="text-danger"
-        ><font-awesome-icon icon="exclamation-circle" /> Failed to Retrieve
-        Token.</span
-      >
       <form @submit.prevent="userInfoSubmit">
         <div class="field">
           <label>Email</label>
@@ -15,8 +13,8 @@
             type="email"
             placeholder="taro@email.com"
             v-model="email"
-            v-validate="required | email"
             name="email"
+            required
           />
         </div>
         <div class="field pb-3">
@@ -26,8 +24,8 @@
             class="input form-control"
             type="password"
             v-model="password"
-            v-validate="required"
             name="password"
+            required
           />
         </div>
         <button class="btn btn-primary" type="submit">Submit</button>
@@ -46,20 +44,24 @@ export default {
     };
   },
   methods: {
-    userInfoSubmit() {
-      this.$store.dispatch("getAccessToken",
-      {
-        name: this.email,
-        password: this.password,
-      })
-      .then(() => {
-          let token = sessionStorage.getItem("accessToken");
-           if(token || token !== undefined) { this.$router.push("/anonymization")}
-      })
-      .catch(err => {
-        console.log(err);
-      })
-    }
-  }
-}
+    async userInfoSubmit() {
+      await this.$store
+        .dispatch("getAccessToken", {
+          name: this.email,
+          password: this.password,
+        })
+        .then(async () => {
+          let token = await sessionStorage.getItem("accessToken");
+          if (token) {
+            this.$router.push("/success");
+          } else {
+            this.$router.push("/error");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
+};
 </script>

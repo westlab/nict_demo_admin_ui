@@ -5,6 +5,9 @@ import Home from "./components/Home";
 import Network from "./components/Network";
 import Anonymization from "./components/Anonymization";
 import Reload from "./components/Reload";
+import RetrieveSuccess from "./components/RetrieveSuccess";
+import RetrieveError from "./components/RetrieveError";
+import NotFound from "./components/404";
 
 Vue.use(VueRouter);
 
@@ -17,6 +20,9 @@ const routes = [
     component: Anonymization,
     meta: { isTokenNeeded: true },
   },
+  { path: "/success", component: RetrieveSuccess },
+  { path: "/error", component: RetrieveError },
+  { path: "*", component: NotFound },
 ];
 
 const router = new VueRouter({
@@ -28,8 +34,7 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   // Token 有無を確認する処理
   if (to.matched.some((page) => page.meta.isTokenNeeded)) {
-    let token = sessionStorage.getItem("accessToken")
-    console.log(token)
+    let token = sessionStorage.getItem("accessToken");
     if (!token) {
       next({
         path: "/reload",
