@@ -4,7 +4,7 @@
       <h4>{{ graphName }}</h4>
     </div>
     <div class="card-body m-2">
-      <img v-on:click="show" src="@/assets/mininet_sample.jpeg" />
+      <img @click="show" src="@/assets/mininet_sample.jpeg" />
     </div>
     <modal id="overlay" name="trafficGraph" :width="800" :height="450">
       <div aria-expanded="true">

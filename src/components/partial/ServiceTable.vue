@@ -21,7 +21,7 @@
         <button
           class="btn btn-warning mt-5"
           type="button"
-          v-on:click="showTableHandler()"
+          @click="showTableHandler()"
         >
           Click to Show <br />
           Raw Data
