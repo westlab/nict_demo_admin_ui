@@ -2,14 +2,14 @@ import axios from "axios";
 
 const state = function() {
     return { 
-        fiwareToken: null,
+        accessToken: null,
         isError: false,
     }
 }
 
 const mutations = {
-    updateAccessToken(state, fiwareToken) {
-      state.fiwareToken = fiwareToken;
+    updateAccessToken(state, accessToken) {
+      state.accessToken = accessToken;
     },
     accessTokenReceiveError(state, isError) {
       state.isError = isError;
@@ -18,14 +18,14 @@ const mutations = {
 
 const actions = {
     getAccessToken({ commit }, data) {
-        axios.post("http://localhost/v1/auth/tokens", data,
-        { headers: { "Content-Type": "application/json",
-                    'Access-Control-Allow-Origin': '*'
+        axios.post("http://10.24.129.208/v1/auth/tokens", data,
+        { headers: { "Content-Type": "application/json"
         }
       })
         .then((res) => {
-          let token = res.headers['X-Subject-Token'];
-          sessionStorage.setItem("fiwareToken", token);
+          let token = res.headers['x-subject-token'];
+          console.log(token);
+          sessionStorage.setItem("accessToken", token);
           commit("updateAccessToken", token);
         })
         .catch((err) => {
@@ -34,7 +34,7 @@ const actions = {
         });
     },
     fetchAccessToken({ commit }) {
-      commit("updateAccessToken", sessionStorage.getItem("fiwareToken"));
+      commit("updateAccessToken", sessionStorage.getItem("accessToken"));
     }
     
 }

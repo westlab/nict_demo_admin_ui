@@ -30,17 +30,18 @@ export default {
     }
   },
   methods: {
-    async userInfoSubmit() {
+    userInfoSubmit() {
       this.$store.dispatch("getAccessToken",
       {
         name: this.email,
         password: this.password,
       })
       .then(() => {
-           if(this.$store.fiwareToken) { this.$router.push(".")}
+          let token = sessionStorage.getItem("accessToken");
+           if(token || token !== undefined) { this.$router.push("/anonymization")}
       })
       .catch(err => {
-        console.log(err.config);
+        console.log(err);
       })
     }
   }

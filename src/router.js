@@ -1,6 +1,5 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Store from "vuex";
 
 import Home from "./components/Home";
 import Network from "./components/Network";
@@ -12,7 +11,7 @@ Vue.use(VueRouter);
 const routes = [
   { path: "/", component: Home },
   { path: "/reload", component: Reload },
-  { path: "/network", component: Network, meta: { isTokenNeeded: true } },
+  { path: "/network", component: Network },
   {
     path: "/anonymization",
     component: Anonymization,
@@ -29,12 +28,11 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   // Token 有無を確認する処理
   if (to.matched.some((page) => page.meta.isTokenNeeded)) {
-    if (!Store.fiwareAuth) {
+    let token = sessionStorage.getItem("accessToken")
+    console.log(token)
+    if (!token) {
       next({
         path: "/reload",
-        query: {
-          redirect: to.fullPath,
-        },
       });
     } else {
       next();
