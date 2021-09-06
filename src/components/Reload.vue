@@ -30,7 +30,7 @@
         </div>
         <button class="btn btn-primary" type="submit">Submit</button>
       </form>
-      <div v-if="isLoading" class="text-center pt-4">
+      <div v-if="isLoading" class="text-center pt-4 loading-delay">
         Loading...
         <div class="spinner-border" role="status" aria-hidden="true"></div>
       </div>
@@ -71,3 +71,22 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.loading-delay {
+  visibility: hidden;
+  animation-name: show;
+  animation-duration: 1s;
+  animation-delay: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes show {
+  0% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+</style>
