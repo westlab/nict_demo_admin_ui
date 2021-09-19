@@ -4,18 +4,16 @@
       <h4>{{ graphName }}</h4>
     </div>
     <div class="card-body m-2">
-      <!-- TODO: グラフ差し替え -->
-      <img @click="show" src="@/assets/mininet_sample.jpeg" />
+      <img @click="show" src="@/assets/mininet_environment.png" />
     </div>
-    <modal id="overlay" name="trafficGraph" :width="800" :height="450">
+    <modal id="overlay" name="trafficGraph" :height="600" :width="1200">
       <div aria-expanded="true">
         <div class="modal-header d-flex">
-          <h2>Traffic Graph</h2>
+          <h2>{{ graphName }}</h2>
           <button class="btn btn-secondary" v-on:click="hide">close</button>
         </div>
         <div class="modal-body">
-          <!-- TODO: グラフ差し替え -->
-          <img style="width: 600px" src="@/assets/mininet_sample.jpeg" />
+          <img style="width: 80%" src="@/assets/mininet_environment.png" />
         </div>
       </div>
     </modal>
@@ -56,3 +54,11 @@ export default {
   },
 };
 </script>
+
+
+<style scoped>
+img {
+  object-fit: cover;
+  width: 100%;
+}
+</style>
