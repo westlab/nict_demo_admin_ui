@@ -10,7 +10,7 @@
           <h5 class="text-left pb-2">Graph</h5>
           <NetworkGraph :graphName="'Simulation Environment'" />
         </div>
-        <div class="col-md-5 border-right">
+        <div class="col-md-5">
           <h5 class="text-left">Entries of each Switches</h5>
           <!-- TODO: mininetのredisから受け取るjsonデータによりループ化 -->
           <div class="scroll height-fixed pt-2">
