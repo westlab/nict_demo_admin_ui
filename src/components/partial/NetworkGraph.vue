@@ -4,7 +4,7 @@
       <h4>{{ graphName }}</h4>
     </div>
     <div class="card-body m-2">
-      <img @click="show" src="@/assets/mininet_environment.png" />
+      <img @click="show" :src="require('@/assets/' + imageName)" />
     </div>
     <modal id="overlay" name="trafficGraph" :height="600" :width="1200">
       <div aria-expanded="true">
@@ -13,7 +13,7 @@
           <button class="btn btn-secondary" v-on:click="hide">close</button>
         </div>
         <div class="modal-body">
-          <img style="width: 80%" src="@/assets/mininet_environment.png" />
+          <img style="width: 80%" :src="require('@/assets/' + imageName)" />
         </div>
       </div>
     </modal>
@@ -26,23 +26,7 @@ export default {
   name: "NetworkGraph",
   props: {
     graphName: String,
-  },
-  data: () => {
-    return {
-      // itemsはオブジェクト配列を代入予定
-      items: [
-        {
-          id: 1,
-          fiveTuple: "5:192.268.2.4:192.168.2.5:443:23475",
-          packetControl: "Forward",
-        },
-        {
-          id: 2,
-          fiveTuple: "5:192.268.2.3:192.168.2.9:443:54567",
-          packetControl: "Drop",
-        },
-      ],
-    };
+    imageName: String,
   },
   methods: {
     show: function () {
