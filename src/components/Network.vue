@@ -7,9 +7,15 @@
       </div>
       <div class="row pt-4">
         <div class="col-md-7">
-          <h5 class="text-left pb-2">Graph</h5>
-          <NetworkGraph :graphName="'Simulation Environment'" :imageName='"mininet_environment.png"'/>
-          <NetworkGraph :graphName="'Flow Management Structure'" :imageName='"network_structure.png"'/>
+          <!-- <h5 class="text-left pb-2">Graph</h5> -->
+          <NetworkGraph
+            :graphName="'Simulation Environment'"
+            :imageName="'mininet_environment.png'"
+          />
+          <NetworkGraph
+            :graphName="'Flow Management Structure'"
+            :imageName="'network_structure.png'"
+          />
         </div>
         <div class="col-md-5">
           <h5 class="text-left">Entries of each Switches</h5>
