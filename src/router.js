@@ -2,8 +2,8 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 import Home from "./components/Home";
-import Network from "./components/Network";
-import Anonymization from "./components/Anonymization";
+import Flow from "./components/Flow";
+import Relationship from "./components/Relationship";
 import Reload from "./components/Reload";
 import RetrieveSuccess from "./components/RetrieveSuccess";
 import RetrieveError from "./components/RetrieveError";
@@ -14,11 +14,11 @@ Vue.use(VueRouter);
 const routes = [
   { path: "/", component: Home },
   { path: "/reload", component: Reload },
-  { path: "/network", component: Network },
+  { path: "/flow", component: Flow },
   {
-    path: "/anonymization",
-    component: Anonymization,
-    meta: { isTokenNeeded: true },
+    path: "/relationship",
+    component: Relationship,
+    meta: { isTokenNeeded: false },
   },
   { path: "/success", component: RetrieveSuccess },
   { path: "/error", component: RetrieveError },
