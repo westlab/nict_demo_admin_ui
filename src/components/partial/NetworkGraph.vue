@@ -1,5 +1,5 @@
 <template>
-  <div class="card text-center mb-3">
+  <div style="width: 80%" class="card d-flex mx-auto mb-3">
     <div class="py-2 mx-auto">
       <h4>{{ graphName }}</h4>
     </div>
@@ -54,7 +54,6 @@ export default {
   },
 };
 </script>
-
 
 <style scoped>
 img {

@@ -1,44 +1,38 @@
 <template>
   <div>
-    <h4 class="text-left">{{ serviceName }}</h4>
+    <h4 class="text-left">{{ relationshipName }}</h4>
     <div class="row py-4 border-top">
-      <div class="col-md-5">
-        <AnonymizationAfterTable />
-      </div>
-      <template v-if="isShow">
-        <div class="col-md-2 text-danger fa-5x" :class="{ anonymized: true }">
-          <font-awesome-icon icon="angle-double-right" />
-        </div>
-        <div class="col-md-5" :class="{ anonymized: true }">
-          <AnonymizationBeforeTable />
-        </div>
-      </template>
-      <div v-else class="col-md-7">
-        <button
-          class="btn btn-warning mt-5"
-          type="button"
-          @click="showTableHandler()"
-        >
-          Click to Show <br />
-          Raw Data
-        </button>
+      <div class="container card">
+        <table class="table table-borderless">
+          <tr>
+            <th class="text-info">Allowed switches</th>
+            <th class="text-secondary">Denied switches</th>
+            <th class="text-danger">Packet Discarded switches</th>
+          </tr>
+          <tbody>
+            <tr>
+              <td>switch 1</td>
+              <td>switch 2</td>
+              <td>switch 4</td>
+            </tr>
+            <tr>
+              <td>switch 3</td>
+              <td>switch 4</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import AnonymizationBeforeTable from "./AnonymizationBeforeTable.vue";
-import AnonymizationAfterTable from "./AnonymizationAfterTable.vue";
-
 export default {
   name: "ServiceTable",
-  components: {
-    AnonymizationBeforeTable,
-    AnonymizationAfterTable,
-  },
   props: {
-    serviceName: String,
+    relationshipName: String,
+    providerName: String,
+    userName: String,
   },
   data: () => {
     return {

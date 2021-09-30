@@ -7,10 +7,10 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <router-link class="nav-link lead" to="/">Home</router-link>
-          <router-link class="nav-link lead" to="/network">Network</router-link>
-          <router-link class="nav-link lead" to="/anonymization"
-            >Anonymization</router-link
+          <router-link class="nav-link lead" to="/relationship"
+            >Relationship</router-link
           >
+          <router-link class="nav-link lead" to="/flow">Flow</router-link>
         </div>
       </div>
     </div>

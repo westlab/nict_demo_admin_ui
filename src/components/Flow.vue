@@ -3,22 +3,20 @@
     <div class="pt-4">
       <div class="d-flex flex-row">
         <h2 class="text-left">Network Info</h2>
-        <button class="btn btn-primary btn-sm ml-auto">Update Info</button>
       </div>
       <div class="row pt-4">
-        <div class="col-md-7">
-          <h5 class="text-left pb-2">Graph</h5>
-          <NetworkGraph :graphName="'Simulation Environment'" />
+        <NetworkGraph :graphName="'Simulation Environment'" />
+      </div>
+      <h5 class="text-left">Entries of each Switches</h5>
+      <!-- TODO: mininetのredisから受け取るjsonデータによりループ化 -->
+      <div class="row">
+        <div class="scroll height-fixed pt-2 col-md-6">
+          <NetworkTable :tableName="'s5'" />
+          <NetworkTable :tableName="'s6'" />
         </div>
-        <div class="col-md-5">
-          <h5 class="text-left">Entries of each Switches</h5>
-          <!-- TODO: mininetのredisから受け取るjsonデータによりループ化 -->
-          <div class="scroll height-fixed pt-2">
-            <NetworkTable :tableName="'s5'" />
-            <NetworkTable :tableName="'s6'" />
-            <NetworkTable :tableName="'s7'" />
-            <NetworkTable :tableName="'s1'" />
-          </div>
+        <div class="scroll height-fixed pt-2 col-md-6">
+          <NetworkTable :tableName="'s7'" />
+          <NetworkTable :tableName="'s1'" />
         </div>
       </div>
     </div>

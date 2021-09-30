@@ -32,34 +32,34 @@ export default {
   },
   data: () => {
     return {
-      items: []
-    }
+      items: [],
+    };
   },
   methods: {
-    fetchData: function() {
+    fetchData: function () {
       var self = this;
       const fetchRedisData = (switchName) => {
         console.log("fetch switch data: ", switchName);
         // 野原のサーバの5000番ポートでredis情報を返すapiサーバが起動している
-        axios.get("http://redis_endpoint:5000/redis_data/" + switchName, {
-          timeout: 5000,
-          headers: { "Content-Type": "application/json" },
-        })
-        .then(async (res) => {
-          self.items = res.data.redis_data;
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+        axios
+          .get("http://redis_endpoint:5000/redis_data/" + switchName, {
+            timeout: 5000,
+            headers: { "Content-Type": "application/json" },
+          })
+          .then(async (res) => {
+            self.items = res.data.redis_data;
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       };
       const switchName = this.tableName;
-      return (setInterval(
-        function(){fetchRedisData(switchName)}
-        ,2000
-      ));
-    }
+      return setInterval(function () {
+        fetchRedisData(switchName);
+      }, 2000);
+    },
   },
-  created: function() {
+  created: function () {
     this.fetchData();
   },
 };
