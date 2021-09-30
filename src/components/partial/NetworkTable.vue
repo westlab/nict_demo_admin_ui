@@ -42,7 +42,7 @@ export default {
         console.log("fetch switch data: ", switchName);
         // 野原のサーバの5000番ポートでredis情報を返すapiサーバが起動している
         axios
-          .get("http://redis_endpoint:5000/redis_data/" + switchName, {
+          .get("http://10.24.128.152:5000/redis_data/" + switchName, {
             timeout: 5000,
             headers: { "Content-Type": "application/json" },
           })
